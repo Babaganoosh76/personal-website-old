@@ -1,0 +1,85 @@
+h1 {
+	font: 300 36px 'Open Sans';
+}
+li, p, a {
+	font: 300 16px 'Open Sans';
+}
+a {
+	color: #f90;
+}
+html {
+	background-color: #000;
+}
+body {
+	margin: 0px;
+	/*padding: 21px 35px;*/
+	padding: 0px;
+	background-color: #fff;
+}
+header {
+	box-sizing: border-box;
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	animation: logo_slide_up 0.7s ease-in-out 2s forwards;
+}
+.container {
+	padding: 20px 35px;
+}
+footer {
+	background-color: #eee;
+	padding: 20px 0px 40px;
+	text-align: center;
+}
+
+#border {
+	position: fixed;
+	box-sizing: border-box;
+	pointer-events: none;
+	border: 0px solid black;
+	animation: border_fade_in 1s ease 0.5s forwards;
+	top: 0px;
+	left: 0px;
+	height: 100vh;
+	width: 100vw;
+}
+#logo {
+	position: relative;
+	display: block;
+	height: 100%;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	/*width: 100%;*/
+	opacity: 0;
+	animation: logo_fade_in 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes border_fade_in {
+	from {
+		border-width: 0px;
+	}
+	to {
+		border-width: 21px;
+	}
+}
+
+@keyframes logo_fade_in {
+	from {
+		transform: translateY(-100px);
+		opacity: 0;
+	}
+	to {
+		transform: none;
+		opacity: 1;
+	}
+}
+
+@keyframes logo_slide_up {
+	from {
+		height: 100vh;
+	}
+	to {
+		height: 50vh;
+	}
+}
