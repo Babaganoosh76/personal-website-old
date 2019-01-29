@@ -51,6 +51,8 @@ function spotify_current_track(callback) {
 					fs.readFile('wilt_cache.json', function(e,data){
 						if (!e) {
 							callback(JSON.parse(data))
+						} else {
+							console.log(e)
 						}
 					})
 				} else {
@@ -63,7 +65,9 @@ function spotify_current_track(callback) {
 						'album_link': body.item.album.external_urls.spotify,
 						'artwork': body.item.album.images[0].url
 					}
-					fs.writeFile('wilt_cache.json', JSON.stringify(data), function(e) {})
+					fs.writeFile('wilt_cache.json', JSON.stringify(data), function(e) {
+						console.log(e)
+					})
 					callback(data)
 				}
 				clearInterval(interval)
@@ -76,8 +80,11 @@ function spotify_current_track(callback) {
 				// Unexpected error
 				console.log('Error: Could not get current track')
 				fs.readFile('wilt_cache.json', function(e,data){
-					if (!e)
+					if (!e) {
 						callback(JSON.parse(data))
+					} else {
+						console.log(e)
+					}
 				})
 				clearInterval(interval)
 			}
